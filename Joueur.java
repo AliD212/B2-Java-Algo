@@ -1,11 +1,17 @@
 package fr.gns.app;
 
-public class Joueur {
-	
+
+
+
+
+public class Joueur implements Comparable<Joueur> {
 	private int numero ;
 	private String nom ;
 	private String pays ;
 	private int nbVictoires = 0 ;
+	
+	
+	
 	
 	public Joueur(int numero, String nom, String pays, int nbVictoires) {
 		super();
@@ -58,43 +64,18 @@ public class Joueur {
 	public String toString() {
 		return "Joueur [numero=" + numero + ", nom=" + nom + ", pays=" + pays + ", nbVictoires=" + nbVictoires + "]";
 	}
-	
-	public boolean equals(Joueur joueur) {
-		
-		if (this.numero == joueur.numero) {
-			
-			return true ;
-			
-			
-			
-		}
-		
-		else {
-			
-			
-			return false ;
-				
-		
-		
-		
-		}
-		
-		
-		
-		
-		
+
+	@Override
+	public int compareTo(Joueur j) {
+	    if (this.nbVictoires > j.nbVictoires) {
+	        return 1;
+	    } else if (this.nbVictoires < j.nbVictoires) {
+	        return -1;
+	    } else {
+	        return 0;
+	    }
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 }
