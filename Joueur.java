@@ -1,5 +1,6 @@
 package fr.gns.app;
 
+import java.util.Objects;
 
 public class Joueur {
 	
@@ -59,5 +60,26 @@ public class Joueur {
 	public String toString() {
 		return "Joueur [numero=" + numero + ", nom=" + nom + ", pays=" + pays + ", nbVictoires=" + nbVictoires + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nbVictoires, nom, numero, pays);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Joueur other = (Joueur) obj;
+		return nbVictoires == other.nbVictoires && Objects.equals(nom, other.nom) && numero == other.numero
+				&& Objects.equals(pays, other.pays);
+	}
+	
+	
+	
 
 }
