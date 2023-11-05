@@ -1,17 +1,13 @@
 package fr.gns.app;
 
-
-
-
+import java.util.List;
 
 public class Joueur implements Comparable<Joueur> {
+	
 	private int numero ;
 	private String nom ;
 	private String pays ;
 	private int nbVictoires = 0 ;
-	
-	
-	
 	
 	public Joueur(int numero, String nom, String pays, int nbVictoires) {
 		super();
@@ -66,16 +62,35 @@ public class Joueur implements Comparable<Joueur> {
 	}
 
 	@Override
-	public int compareTo(Joueur j) {
-	    if (this.nbVictoires > j.nbVictoires) {
-	        return 1;
-	    } else if (this.nbVictoires < j.nbVictoires) {
-	        return -1;
-	    } else {
-	        return 0;
+	public int compareTo(Joueur o) {
+
+		if( this.nbVictoires == o.nbVictoires ) {
+			return 0 ;
+		}
+		else if( this.nbVictoires > o.nbVictoires ) {
+			return 1 ;
+		}
+		else {
+			return -1 ;
+		}
+	}
+	
+	public Joueur min(List<Joueur> joueurs) {
+	    Joueur j1 = joueurs.get(0);
+
+	    for (int i = 1; i < joueurs.size(); i++) {
+	        Joueur j2 = joueurs.get(i);
+
+	        if (j2.getNbVictoires() < j1.getNbVictoires()) {
+	            j1 = j2;
+	        }
 	    }
+
+	    return j1;
 	}
 
+
+	
 	
 
 }
