@@ -1,28 +1,10 @@
 package fr.gns.app;
 import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Collections;
-import java.util.List;
+
 
 public class AppTrierParNbVictoires {
 
-    public static Joueur min(List<Joueur> joueurs) {
-        Joueur j1 = joueurs.get(0);
-
-        for (int i = 1; i < joueurs.size(); i++) {
-            Joueur j2 = joueurs.get(i);
-
-            if (j2.getNbVictoires() < j1.getNbVictoires()) {
-                j1 = j2;
-            }
-        }
-
-        return j1;
-    }
     
     public static Joueur max(List<Joueur> joueurs) {
         Joueur j1 = joueurs.get(0);
@@ -37,24 +19,15 @@ public class AppTrierParNbVictoires {
 
         return j1;
     }
-    
-    
-    public static void sort(List<Joueur> joueurs) {
-    	
-    	 Collections.sort(joueurs, Comparator.comparingInt(Joueur::getNbVictoires));
-    	 
-    	 
-    	 
-    }
-    		 
+       		 
     public static List<Joueur> sort2(List<Joueur> joueurs) {
     	
     	List<Joueur> j1 = new ArrayList<Joueur>();
     	
     	for (int i = 0; i < 9; i++) {
     		 
-    		 j1.add(min(joueurs)) ;
-    		 joueurs.remove(min(joueurs)) ;
+    		 j1.add(max(joueurs)) ;
+    		 joueurs.remove(max(joueurs)) ;
     		 
     		 
     	 }
@@ -64,7 +37,7 @@ public class AppTrierParNbVictoires {
    }	 
     	 
     	
-        
+  
     
     
 
@@ -82,7 +55,8 @@ public class AppTrierParNbVictoires {
     	joueurs.add( new Joueur( 111 , "SIF" , "France" , 25 ) ) ; 
     	
     	
-    
+    	Joueur j1 = new Joueur( 111 , "SIF" , "France" , 25 ) ;
+    	Joueur j2 = new Joueur( 111 , "SIF" , "France" , 25 ) ;
        
 
         System.out.println("\nListe des joueurs :\n");
@@ -91,15 +65,25 @@ public class AppTrierParNbVictoires {
         }
         
         
-        
-        
-
-        System.out.println("\nCelui qui a remporté le moins de victoires :\n" + min(joueurs));
-        
         System.out.println("\nListe triée des joueurs :\n" + sort2(joueurs) );
         
-        
-      
-        
+        ComparateurNbVictoires comp1 = new ComparateurNbVictoires();
+        int comp2 = comp1.compare(joueurs.get(1), joueurs.get(1));
+
+        if (comp2 == 0) {
+            System.out.println("\n les joueurs sont à égalité :\n");
+        } else if (comp2 == 1) {
+            System.out.println("\n le joueur a plus de victoires  :\n");
+        } else if (comp2 == -1) {
+            System.out.println("\n le joueur a moins de victoires :\n");
+        }
+
+    
     }
+    
 }
+        	
+        	
+        	
+   
+
