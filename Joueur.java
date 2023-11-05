@@ -1,6 +1,7 @@
 package fr.gns.app;
 
 public class Joueur {
+	
 	private int numero ;
 	private String nom ;
 	private String pays ;
@@ -57,5 +58,43 @@ public class Joueur {
 	public String toString() {
 		return "Joueur [numero=" + numero + ", nom=" + nom + ", pays=" + pays + ", nbVictoires=" + nbVictoires + "]";
 	}
+	
+	public boolean equals(Joueur joueur) {
+		
+		if (this.numero == joueur.numero) {
+			
+			return true ;
+			
+			
+			
+		}
+		
+		else {
+			
+			
+			return false ;
+				
+		
+		
+		
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
