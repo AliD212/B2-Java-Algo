@@ -26,9 +26,8 @@ public class AppRechercherJoueur {
 		
 		Joueur joueur = new Joueur( 105 , "LUCINA" , "France" , 33 ) ;
 		
-		
 		System.out.println( "\nPosition du joueur dans la liste :" ) ;
-		System.out.println( joueurs.indexOf( joueur ) ) ;
+		System.out.println( joueurs.indexOf( joueur )) ;
 		
 
 	}

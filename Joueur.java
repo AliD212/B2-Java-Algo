@@ -55,11 +55,8 @@ public class Joueur {
 	public void setNbVictoires(int nbVictoires) {
 		this.nbVictoires = nbVictoires;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "Joueur [numero=" + numero + ", nom=" + nom + ", pays=" + pays + ", nbVictoires=" + nbVictoires + "]";
-	}
 
 	@Override
 	public int hashCode() {
@@ -78,8 +75,10 @@ public class Joueur {
 		return nbVictoires == other.nbVictoires && Objects.equals(nom, other.nom) && numero == other.numero
 				&& Objects.equals(pays, other.pays);
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Joueur [numero=" + numero + ", nom=" + nom + ", pays=" + pays + ", nbVictoires=" + nbVictoires + "]";
+	}
 
 }
